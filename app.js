@@ -3,20 +3,22 @@
 let listaAmigos = [];
 
 function exibirAmigo(amigo, acao) {
-    let amigoExibido = document.createElement('li');
-    amigoExibido.innerHTML = amigo;
-
+    
     if (acao == 'adicionado') {
+        let amigoExibido = document.createElement('li');
+        amigoExibido.innerHTML = amigo;
         document.getElementById('listaAmigos').appendChild(amigoExibido);
-    } else {
-        document.getElementById('resultado').appendChild(amigoExibido);
+    } else if (acao == 'sorteado') {
+        document.getElementById('li-resultado').innerHTML = amigo;
     }
 }
 
-function desabilitarBotoes() {
+function desabilitarBotao(botao) {
     let botoes = document.getElementsByTagName('button');
-    for (botao of botoes) {
-        botao.disabled = true;
+    if (botao == 'adicionar') {
+        botoes[0].disabled = true;
+    } else if (botao == 'sortear') {
+        botoes[1].disabled = true;
     }
 
 }
@@ -35,11 +37,22 @@ function adicionarAmigo() {
     }
 }
 
+let houveSorteio = false;
 function sortearAmigo() {
+    if (listaAmigos.length <= 1 && houveSorteio == false) {
+        alert('Não há amigos suficientes para sortear!');
+    } else {
+        let numAleatorio = parseInt(Math.random()*listaAmigos.length) + 1;
+        let amigo = listaAmigos[numAleatorio-1];
+        exibirAmigo(amigo, 'sorteado');
+        desabilitarBotao('adicionar');
+        houveSorteio = true;
 
-    let numAleatorio = parseInt(Math.random()*listaAmigos.length) + 1;
-    let amigo = listaAmigos[numAleatorio-1];
-    exibirAmigo(amigo, 'sorteado');
-    desabilitarBotoes();
-
+        let indice = listaAmigos.indexOf(amigo);
+        listaAmigos.splice(indice, 1);
+        
+        if (listaAmigos == 0) {
+            desabilitarBotao('sortear');
+        }
+    }
 }
