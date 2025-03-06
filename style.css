@@ -6,6 +6,8 @@
     --color-button-hover: #e55720;
     --color-text: #444444;
     --color-white: #FFFFFF;
+    --color-button-clean: #FCBD21;
+    --color-button-clean-hover: #e6b437;
 }
 
 /* Estilos gerais */
@@ -86,10 +88,18 @@ body {
     border-radius: 25px 0 0 25px;
     font-size: 16px;
 }
-
+/* Estiliza o container dentro de cada botão */
 .button-container {
     width: 300px;
     justify-content: center;
+}
+
+/* Estiliza o container que engloba ambos os botões*/
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
 }
 
 /* Estilos de entrada de texto */
@@ -168,3 +178,27 @@ ul {
 .button-draw:disabled {
     background-color: #f1a183;
 }
+
+/* Botão de limpar nome */
+
+.bin-icon {
+    height: 34px;
+    margin-right: 40px;
+}
+
+.button-clean {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    color: #000;
+    background-color: var(--color-button-clean);
+}
+.button-clean:hover {
+    background-color: var(--color-button-clean-hover);
+}
+
+.button-clean:disabled {
+    background-color: #eecc76;
+}
+

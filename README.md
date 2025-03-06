@@ -24,3 +24,13 @@ Este projeto foi construído para apresentar duas principais funções: adiciona
   - Exibe alerta caso não haja nenhum nome na lista de amigos ou apenas 1 amigo adicionado (se não houve nenhum sorteio ainda)
   - Bloqueio do botão *Adicionar* após o primeiro sorteio (atribuído o disabled com JS e alterado o CSS após desabitação do botão)
   - Bloqueio do botão *Sortear* após o sorteio de todos os jogadores (atribuído o disabled com JS e alterado o CSS após desabitação do botão)
+
+<h2>3) Limpar Amigos</h2>
+
+**- Função Principal:** Limpa o nome da pessoa que acabou de ser sorteada. Esta implementação foi pensada como complemento ao sistema de sorteios múltiplos, para evitar que o nome da pessoa sorteada anteriormente fique visível à nova pessoa que realizará o próximo sorteio.
+
+**- Manipulação de Botões:** O botão *Limpar* estará desativado até que seja feito um sorteio válido. 
+Então, o botão de *Sortear* ficará desativado até que o botão *Limpar* seja clicado.
+
+Observação: **Este botão não constava no código HTML pré-definido do desafio original**, sendo criado como uma funcionalidade adicional do projeto. <br>
+Para o desenvolvimento do CSS deste novo elemento, utilizou-se a cor amarela presente na imagem de cabeçalho e variações de tom para os estados *hover* e *disabled*. Também estilizou-se um novo container que engloba os botões *Sortear* e *Limpar*, com o objetivo de centralizá-los na página.
